@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import { useRef, useEffect } from "react";
 
 function Form2() {
   const inputRef = useRef<HTMLInputElement | null>(null); // Referencia para el input X
