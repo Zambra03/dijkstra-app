@@ -129,13 +129,13 @@ export function clearFormData() {
 }
 
 // Función para ajustar el tamaño del canvas
-function sizeCanvas(canvas: HTMLCanvasElement | null, size: number = 600) {
-  if (canvas) {
-    canvas.width = size;
-    canvas.height = size;
-    console.log(`Tamaño del canvas ajustado a ${size}x${size}`);
-  }
-}
+// function sizeCanvas(canvas: HTMLCanvasElement | null, size: number = 600) {
+//   if (canvas) {
+//     canvas.width = size;
+//     canvas.height = size;
+//     console.log(`Tamaño del canvas ajustado a ${size}x${size}`);
+//   }
+// }
 
 export function fillSelects(grafo: Record<string, any>): void {
   const initialP = document.getElementById("initialP") as HTMLSelectElement;
