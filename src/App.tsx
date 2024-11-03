@@ -2,9 +2,10 @@ import Header from "./components/Header";
 import Section1 from "./components/Section1";
 import Section2 from "./components/Section2";
 import Section3 from "./components/Section3";
+import Section4 from "./components/Section4";
 import "./assets/css/style.css";
 
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import {
   clearInformation,
   drawVertex,
@@ -13,6 +14,13 @@ import {
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [routeResult, setRouteResult] = useState<{
+    weight: number;
+    path: string;
+  }>({
+    weight: 0,
+    path: "",
+  });
 
   const handleClearCanvas = () => {
     // Llama a la función clearInformation desde el CanvasComponent
@@ -81,6 +89,10 @@ function App() {
     }
   };
 
+  const handleRouteCalculated = (result: { weight: number; path: string }) => {
+    setRouteResult(result); // Guardar el resultado en el estado
+  };
+
   // jsx ->
   return (
     <section>
@@ -90,8 +102,10 @@ function App() {
           onCreateVertex={handleCreateVertex}
           onCreateEdge={handleCreateEdge}
           onCreateRoute={handleCreateRoute}
+          onRouteCalculated={handleRouteCalculated} // Pasa la función de App aquí
         />
         <Section2 canvasRef={canvasRef} />
+        <Section4 result={routeResult} />
       </div>
       <div className="container2">
         <Section3 onClearCanvas={handleClearCanvas} />

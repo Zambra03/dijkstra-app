@@ -14,12 +14,14 @@ interface Section1Props {
     peso: number
   ) => void; //
   onCreateRoute: (x1: number, y1: number, x2: number, y2: number) => void; //;
+  onRouteCalculated: (result: { weight: number; path: string }) => void; // Nueva prop
 }
 
 function Section1({
   onCreateVertex,
   onCreateEdge,
   onCreateRoute,
+  onRouteCalculated,
 }: Section1Props) {
   // Estado para controlar la visibilidad del formulario
   const [showForm, setShowForm] = useState(false);
@@ -104,6 +106,7 @@ function Section1({
             coordenadas={coordenadas}
             grafo={grafo}
             onCreateRoute={onCreateRoute}
+            onRouteCalculated={onRouteCalculated}
           />
         )}
       </div>

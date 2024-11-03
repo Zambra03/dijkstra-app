@@ -5,9 +5,15 @@ interface Form3Props {
   coordenadas: Record<string, [number, number]>;
   grafo: Record<string, Record<string, number>>;
   onCreateRoute: (x1: number, y1: number, x2: number, y2: number) => void; //;
+  onRouteCalculated: (result: { weight: number; path: string }) => void;
 }
 
-function Form3({ coordenadas, grafo, onCreateRoute }: Form3Props) {
+function Form3({
+  coordenadas,
+  grafo,
+  onCreateRoute,
+  onRouteCalculated,
+}: Form3Props) {
   const inputRef = useRef<HTMLInputElement | null>(null); // Referencia para el input X
 
   const [initialPC, setInitialPC] = useState<string>("");
@@ -34,8 +40,8 @@ function Form3({ coordenadas, grafo, onCreateRoute }: Form3Props) {
       if (initialPC !== finalPC) {
         console.log("Entre al segundo if del fomr3");
         const dks = AlgorithmDijsktra(grafo, initialPC, finalPC);
-        const distance = dks["distancia"];
-        const route = dks["ruta"];
+        const distance = Number(dks["distancia"]);
+        const route = dks["ruta"].slice().reverse(); // Invertir el arreglo para el orden correcto
 
         // Suponiendo que tienes un contexto de canvas para llamar a drawEdge
         for (let i = 0; i < route.length; i++) {
@@ -50,7 +56,8 @@ function Form3({ coordenadas, grafo, onCreateRoute }: Form3Props) {
         }
 
         // Muestra la distancia en la interfaz
-        alert(`Peso total: ${distance}\nRuta: (${route.join(", ")})`);
+        // Enviar el resultado a través de onRouteCalculated
+        onRouteCalculated({ weight: distance, path: route.join(" -> ") });
       } else {
         alert("¡Ya estás en tu destino!");
       }
