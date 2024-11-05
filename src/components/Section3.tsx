@@ -1,10 +1,14 @@
 interface Section1Props {
   onClearCanvas: () => void; // Prop para limpiar el canvas
+  handleClear: () => void;
+  onClearRoute: () => void;
 }
 
-function Section3({ onClearCanvas }: Section1Props) {
+function Section3({ onClearCanvas, handleClear, onClearRoute }: Section1Props) {
   const ClickLimpiar = () => {
     onClearCanvas();
+    handleClear();
+    onClearRoute();
   };
 
   return (

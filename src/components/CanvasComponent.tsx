@@ -107,7 +107,7 @@ export function clearInformation(
   emptyCanvas(canvasRef.current, size); // Limpia el canvas y ajusta el tamaño
 
   // Otras acciones que desees realizar
-  console.log("Información limpiada");
+  console.log("Información del canvas limpiada");
 }
 
 export function clearFormData() {

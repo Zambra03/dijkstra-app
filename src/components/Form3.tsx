@@ -77,7 +77,7 @@ function Form3({
           value={initialPC}
           onChange={(e) => setInitialPC(e.target.value)}
         >
-          <option value="">Seleccione un punto</option>
+          <option value="">Elige un punto</option>
           {Object.keys(coordenadas).map((key) => (
             <option key={key} value={key}>
               {key}
@@ -93,7 +93,7 @@ function Form3({
           value={finalPC}
           onChange={(e) => setFinalPC(e.target.value)}
         >
-          <option value="">Seleccione un punto</option>
+          <option value="">Elige un punto</option>
           {Object.keys(coordenadas).map((key) => (
             <option key={key} value={key}>
               {key}

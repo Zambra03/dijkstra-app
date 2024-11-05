@@ -15,6 +15,18 @@ interface Section1Props {
   ) => void; //
   onCreateRoute: (x1: number, y1: number, x2: number, y2: number) => void; //;
   onRouteCalculated: (result: { weight: number; path: string }) => void; // Nueva prop
+
+  // Agrega las propiedades nuevas aquí
+  coordenadas: Record<string, [number, number]>;
+  grafo: Record<string, Record<string, number>>;
+  aristas: [string, string][];
+  setCoordenadas: React.Dispatch<
+    React.SetStateAction<Record<string, [number, number]>>
+  >;
+  setGrafo: React.Dispatch<
+    React.SetStateAction<Record<string, Record<string, number>>>
+  >;
+  setAristas: React.Dispatch<React.SetStateAction<[string, string][]>>;
 }
 
 function Section1({
@@ -22,6 +34,12 @@ function Section1({
   onCreateEdge,
   onCreateRoute,
   onRouteCalculated,
+  coordenadas, // Recibe las coordenadas
+  grafo, // Recibe el grafo
+  aristas, // Recibe las aristas
+  setCoordenadas, // Recibe setCoordenadas
+  setGrafo, // Recibe setGrafo
+  setAristas, // Recibe setAristas
 }: Section1Props) {
   // Estado para controlar la visibilidad del formulario
   const [showForm, setShowForm] = useState(false);
@@ -29,13 +47,13 @@ function Section1({
   const [showForm2, setShowForm2] = useState(false);
 
   // Estado para coordenadas y grafo
-  const [coordenadas, setCoordenadas] = useState<
-    Record<string, [number, number]>
-  >({});
-  const [grafo, setGrafo] = useState<Record<string, Record<string, number>>>(
-    {}
-  );
-  const [aristas, setAristas] = useState<[string, string][]>([]);
+  // const [coordenadas, setCoordenadas] = useState<
+  //   Record<string, [number, number]>
+  // >({});
+  // const [grafo, setGrafo] = useState<Record<string, Record<string, number>>>(
+  //   {}
+  // );
+  // const [aristas, setAristas] = useState<[string, string][]>([]);
 
   // Función para mostrar el formulario al hacer clic en "Punto"
   const ClickPunto = () => {
@@ -64,6 +82,13 @@ function Section1({
     }, 300); // Retraso de 300 ms
     console.log("Form Ruta desplegado correctamente");
   };
+  // Función para limpiar el canvas y resetear coordenadas y grafo
+  // const handleClear = () => {
+  //   setCoordenadas({});
+  //   setGrafo({});
+  //   setAristas([]);
+  //   console.log("datos limpiados");
+  // };
 
   return (
     <div className="section1">
@@ -110,6 +135,13 @@ function Section1({
           />
         )}
       </div>
+      {/* <div className="section1_2">
+        <Section3
+          onClearCanvas={onClearCanvas}
+          handleClear={handleClear}
+          onClearRoute={onClearRoute}
+        />
+      </div> */}
     </div>
   );
 }

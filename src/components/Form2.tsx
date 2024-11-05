@@ -128,7 +128,7 @@ function Form2({
           value={initialP}
           onChange={(e) => setinitialP(e.target.value)}
         >
-          <option value="">Seleccione un punto</option>
+          <option value="">Elige un punto</option>
           {Object.keys(coordenadas).map((key) => (
             <option key={key} value={key}>
               {key}
@@ -144,7 +144,7 @@ function Form2({
           value={finalP}
           onChange={(e) => setfinalP(e.target.value)}
         >
-          <option value="">Seleccione un punto</option>
+          <option value="">Elige un punto</option>
           {Object.keys(coordenadas).map((key) => (
             <option key={key} value={key}>
               {key}

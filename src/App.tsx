@@ -1,7 +1,6 @@
 import Header from "./components/Header";
 import Section1 from "./components/Section1";
 import Section2 from "./components/Section2";
-import Section3 from "./components/Section3";
 import Section4 from "./components/Section4";
 import "./assets/css/style.css";
 
@@ -11,6 +10,7 @@ import {
   drawVertex,
   drawEdge,
 } from "./components/CanvasComponent";
+import Section3 from "./components/Section3";
 
 function App() {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
@@ -93,6 +93,28 @@ function App() {
     setRouteResult(result); // Guardar el resultado en el estado
   };
 
+  // Función para limpiar `result`
+  const handleClearResult = () => {
+    setRouteResult({ weight: 0, path: "" });
+    console.log("Se limpio el peso total y la ruta");
+  };
+
+  const [coordenadas, setCoordenadas] = useState<
+    Record<string, [number, number]>
+  >({});
+  const [grafo, setGrafo] = useState<Record<string, Record<string, number>>>(
+    {}
+  );
+  const [aristas, setAristas] = useState<[string, string][]>([]);
+
+  // Función para limpiar coordenadas, grafo y aristas
+  const handleClear = () => {
+    setCoordenadas({});
+    setGrafo({});
+    setAristas([]);
+    console.log("Datos limpiados");
+  };
+
   // jsx ->
   return (
     <section>
@@ -103,12 +125,22 @@ function App() {
           onCreateEdge={handleCreateEdge}
           onCreateRoute={handleCreateRoute}
           onRouteCalculated={handleRouteCalculated} // Pasa la función de App aquí
+          coordenadas={coordenadas} // pasar coordenadas a Section1
+          grafo={grafo} // pasar grafo a Section1
+          aristas={aristas} // pasar aristas a Section1
+          setCoordenadas={setCoordenadas} // pasar setCoordenadas a Section1
+          setGrafo={setGrafo} // pasar setGrafo a Section1
+          setAristas={setAristas} // pasar setAristas a Section1
         />
         <Section2 canvasRef={canvasRef} />
         <Section4 result={routeResult} />
       </div>
       <div className="container2">
-        <Section3 onClearCanvas={handleClearCanvas} />
+        <Section3
+          onClearCanvas={handleClearCanvas}
+          handleClear={handleClear}
+          onClearRoute={handleClearResult}
+        />
       </div>
     </section>
   );
