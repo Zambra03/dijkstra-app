@@ -15,7 +15,7 @@ interface Section1Props {
   ) => void; //
   onCreateRoute: (x1: number, y1: number, x2: number, y2: number) => void; //;
   onRouteCalculated: (result: { weight: number; path: string }) => void; // Nueva prop
-
+  onLongRoute: (result: { weight: number; path: string }) => void;
   // Agrega las propiedades nuevas aquí
   coordenadas: Record<string, [number, number]>;
   grafo: Record<string, Record<string, number>>;
@@ -34,6 +34,7 @@ function Section1({
   onCreateEdge,
   onCreateRoute,
   onRouteCalculated,
+  onLongRoute,
   coordenadas, // Recibe las coordenadas
   grafo, // Recibe el grafo
   aristas, // Recibe las aristas
@@ -46,16 +47,6 @@ function Section1({
   const [showForm1, setShowForm1] = useState(false);
   const [showForm2, setShowForm2] = useState(false);
 
-  // Estado para coordenadas y grafo
-  // const [coordenadas, setCoordenadas] = useState<
-  //   Record<string, [number, number]>
-  // >({});
-  // const [grafo, setGrafo] = useState<Record<string, Record<string, number>>>(
-  //   {}
-  // );
-  // const [aristas, setAristas] = useState<[string, string][]>([]);
-
-  // Función para mostrar el formulario al hacer clic en "Punto"
   const ClickPunto = () => {
     setTimeout(() => {
       setShowForm(true);
@@ -82,13 +73,6 @@ function Section1({
     }, 300); // Retraso de 300 ms
     console.log("Form Ruta desplegado correctamente");
   };
-  // Función para limpiar el canvas y resetear coordenadas y grafo
-  // const handleClear = () => {
-  //   setCoordenadas({});
-  //   setGrafo({});
-  //   setAristas([]);
-  //   console.log("datos limpiados");
-  // };
 
   return (
     <div className="section1">
@@ -132,16 +116,10 @@ function Section1({
             grafo={grafo}
             onCreateRoute={onCreateRoute}
             onRouteCalculated={onRouteCalculated}
+            onLongRoute={onLongRoute}
           />
         )}
       </div>
-      {/* <div className="section1_2">
-        <Section3
-          onClearCanvas={onClearCanvas}
-          handleClear={handleClear}
-          onClearRoute={onClearRoute}
-        />
-      </div> */}
     </div>
   );
 }

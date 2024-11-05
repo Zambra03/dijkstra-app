@@ -128,13 +128,41 @@ canvas#visualizacion {
 }
 
 .section4_1 {
+  width: 100%;
   height: 30%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
   position: relative;
   gap: 10px;
+}
+
+.section4_2 {
+  width: 100%;
+  height: 30%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  gap: 10px;
+}
+
+.fraction {
+  display: inline-grid;
+  grid-template-rows: auto auto;
+  text-align: center;
+  margin: 0 4px; /* Espacio alrededor de la fracción */
+  vertical-align: middle; /* Alinea la fracción al medio del texto circundante */
+  position: relative;
+  top: 0.2em; /* Ajuste para centrar la fracción verticalmente */
+}
+
+.numerator {
+  font-size: 0.9em; /* Tamaño ajustado para el numerador */
+}
+
+.denominator {
+  font-size: 0.9em; /* Tamaño ajustado para el denominador */
+  border-top: 1px solid #000; /* Línea que separa el numerador del denominador */
+  margin-top: 2px; /* Espacio entre la línea y el numerador */
 }
 
 .btn-accion {

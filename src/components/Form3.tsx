@@ -1,11 +1,13 @@
 import React, { useState, useRef, useEffect } from "react";
 import AlgorithmDijsktra from "./AlgorithmDijsktra";
+import RutaLarga from "./LongRoute";
 
 interface Form3Props {
   coordenadas: Record<string, [number, number]>;
   grafo: Record<string, Record<string, number>>;
   onCreateRoute: (x1: number, y1: number, x2: number, y2: number) => void; //;
   onRouteCalculated: (result: { weight: number; path: string }) => void;
+  onLongRoute: (result: { weight: number; path: string }) => void;
 }
 
 function Form3({
@@ -13,6 +15,7 @@ function Form3({
   grafo,
   onCreateRoute,
   onRouteCalculated,
+  onLongRoute,
 }: Form3Props) {
   const inputRef = useRef<HTMLInputElement | null>(null); // Referencia para el input X
 
@@ -42,6 +45,9 @@ function Form3({
         const dks = AlgorithmDijsktra(grafo, initialPC, finalPC);
         const distance = Number(dks["distancia"]);
         const route = dks["ruta"].slice().reverse(); // Invertir el arreglo para el orden correcto
+        const rml = RutaLarga(grafo, initialPC, finalPC);
+        const distancelarge = Number(rml["distancia"]);
+        const routelarge = rml["ruta"].slice().reverse(); // Invertir el arreglo para el orden correcto
 
         // Suponiendo que tienes un contexto de canvas para llamar a drawEdge
         for (let i = 0; i < route.length; i++) {
@@ -58,6 +64,7 @@ function Form3({
         // Muestra la distancia en la interfaz
         // Enviar el resultado a través de onRouteCalculated
         onRouteCalculated({ weight: distance, path: route.join(" -> ") });
+        onLongRoute({ weight: distancelarge, path: routelarge.join(" -> ") });
       } else {
         alert("¡Ya estás en tu destino!");
       }

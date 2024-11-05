@@ -22,6 +22,14 @@ function App() {
     path: "",
   });
 
+  const [routeResultlarge, setRouteResultlarge] = useState<{
+    weight: number;
+    path: string;
+  }>({
+    weight: 0,
+    path: "",
+  });
+
   const handleClearCanvas = () => {
     // Llama a la función clearInformation desde el CanvasComponent
     clearInformation(canvasRef, 600); // Asegúrate de definir clearInformation
@@ -93,10 +101,20 @@ function App() {
     setRouteResult(result); // Guardar el resultado en el estado
   };
 
+  const onLongRoute = (resultlarge: { weight: number; path: string }) => {
+    setRouteResultlarge(resultlarge); // Guardar el resultado en el estado
+  };
+
   // Función para limpiar `result`
   const handleClearResult = () => {
     setRouteResult({ weight: 0, path: "" });
     console.log("Se limpio el peso total y la ruta");
+  };
+
+  // Función para limpiar `result1`
+  const handleClearLargeResult = () => {
+    setRouteResultlarge({ weight: 0, path: "" });
+    console.log("Se limpio el peso total y la ruta larga");
   };
 
   const [coordenadas, setCoordenadas] = useState<
@@ -125,6 +143,7 @@ function App() {
           onCreateEdge={handleCreateEdge}
           onCreateRoute={handleCreateRoute}
           onRouteCalculated={handleRouteCalculated} // Pasa la función de App aquí
+          onLongRoute={onLongRoute} //funcion ruta larga
           coordenadas={coordenadas} // pasar coordenadas a Section1
           grafo={grafo} // pasar grafo a Section1
           aristas={aristas} // pasar aristas a Section1
@@ -133,13 +152,14 @@ function App() {
           setAristas={setAristas} // pasar setAristas a Section1
         />
         <Section2 canvasRef={canvasRef} />
-        <Section4 result={routeResult} />
+        <Section4 result={routeResult} result1={routeResultlarge} />
       </div>
       <div className="container2">
         <Section3
           onClearCanvas={handleClearCanvas}
           handleClear={handleClear}
           onClearRoute={handleClearResult}
+          onClearLargeRoute={handleClearLargeResult}
         />
       </div>
     </section>
