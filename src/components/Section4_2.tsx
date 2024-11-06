@@ -9,15 +9,15 @@ function Section4_2({ result, result1 }: Section4_2Props) {
   return (
     <div className="section4_2">
       <p className="titulo2">Eficiencia %</p>
-      <p>
-        %E: (1 -
+      <p className="formula">
+        %E: (1 -{" "}
         <span className="fraction">
-          <span className="numerator">(peso ruta optima)</span>
-          <span className="denominator">(peso ruta larga)</span>
+          <span className="numerator"> (peso ruta optima)</span>
+          <span className="denominator"> (peso ruta larga)</span>
         </span>
         ) * 100 = eficiencia%
       </p>
-      <p>
+      <p className="formula">
         %E: (1 -
         <span className="fraction">
           <span className="numerator">{result.weight}</span>

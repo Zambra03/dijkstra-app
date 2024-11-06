@@ -138,7 +138,9 @@ function Form1({
           onChange={(e) => setPositionY(Number(e.target.value))}
         />
       </div>
-      <label htmlFor="namePunto">Nombre del punto</label>
+      <label className="namePunto" htmlFor="namePunto">
+        Nombre del punto
+      </label>
       <div className="formRow">
         <input
           type="text"
@@ -150,7 +152,7 @@ function Form1({
         <input
           type="submit"
           id="btnCrearV"
-          className="btn"
+          className="btnForm1"
           value="Crear punto"
         />
       </div>
