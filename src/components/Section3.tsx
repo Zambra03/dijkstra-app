@@ -1,3 +1,5 @@
+import "@fortawesome/fontawesome-free/css/all.min.css";
+
 interface Section1Props {
   onClearCanvas: () => void; // Prop para limpiar el canvas
   handleClear: () => void;
@@ -25,6 +27,7 @@ function Section3({
         className="btn-accion limpiar"
         onClick={ClickLimpiar}
       >
+        <i className="fa-solid fa-trash-can" style={{ marginRight: "8px" }}></i>
         Limpiar
       </button>
       <button id="" className="btn-accion guardar">

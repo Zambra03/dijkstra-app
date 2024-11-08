@@ -76,9 +76,10 @@ h1 {
   background-color: #6e6e6e;
   color: white;
   border: none;
-  border-radius: 5px;
+  border-radius: 7px;
   cursor: pointer;
   font-size: 15px;
+  font-weight: bold;
 }
 
 .btn-opcion:hover {
@@ -107,6 +108,8 @@ canvas#visualizacion {
 .container2 {
   height: 10%;
   padding: 10px;
+  width: 80%; /* Ocupa el 80% del ancho */
+  margin: 0 auto; /* Centra el contenedor horizontalmente */
 }
 
 .section3 {
@@ -173,11 +176,13 @@ canvas#visualizacion {
   flex: 1; /* Los botones ocupan la misma proporción */
   padding: 10px;
   border: none;
-  border-radius: 5px;
+  border-radius: 20px;
   color: white;
   cursor: pointer;
   font-size: 14px;
   text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
 .limpiar {
