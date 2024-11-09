@@ -77,13 +77,33 @@ function Section1({
   return (
     <div className="section1">
       <p className="titulo">¿Qué quieres crear?</p>
-      <button id="btnCrearPunto" className="btn-opcion" onClick={ClickPunto}>
+      <button
+        id="btnCrearPunto"
+        className="btn-opcion punto"
+        onClick={ClickPunto}
+      >
+        <i
+          className="fa-solid fa-circle"
+          style={{ marginRight: "7px", fontSize: "7px" }}
+        ></i>
         Punto
       </button>
-      <button id="btnCrearCamino" className="btn-opcion" onClick={ClickCamino}>
+      <button
+        id="btnCrearCamino"
+        className="btn-opcion camino"
+        onClick={ClickCamino}
+      >
+        <i
+          className="fa-solid fa-share-nodes"
+          style={{ marginRight: "7px", fontSize: "15px" }}
+        ></i>
         Camino
       </button>
-      <button id="btnCrearRuta" className="btn-opcion" onClick={ClickRuta}>
+      <button id="btnCrearRuta" className="btn-opcion ruta" onClick={ClickRuta}>
+        <i
+          className="fa-solid fa-route"
+          style={{ marginRight: "7px", fontSize: "15px" }}
+        ></i>
         Ruta
       </button>
       <div className={`form-container ${showForm ? "slide-down" : ""}`}>

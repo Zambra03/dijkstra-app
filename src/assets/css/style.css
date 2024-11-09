@@ -73,21 +73,41 @@ h1 {
 .btn-opcion {
   width: 70%;
   padding: 7px;
-  background-color: #6e6e6e;
   color: white;
   border: none;
-  border-radius: 7px;
+  border-radius: 20px;
   cursor: pointer;
   font-size: 15px;
   font-weight: bold;
 }
 
 .btn-opcion:hover {
-  background-color: #565656;
+  opacity: 0.8;
+}
+
+.punto {
+  background-color: #00008b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.camino {
+  background-color: #ff8000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ruta {
+  background-color: #008f39;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .section2 {
-  width: 40%;
+  width: 38%;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -108,7 +128,7 @@ canvas#visualizacion {
 .container2 {
   height: 10%;
   padding: 10px;
-  width: 80%; /* Ocupa el 80% del ancho */
+  width: 25%; /* Ocupa el 80% del ancho */
   margin: 0 auto; /* Centra el contenedor horizontalmente */
 }
 
@@ -119,7 +139,7 @@ canvas#visualizacion {
 }
 
 .section4 {
-  width: 30%;
+  width: 32%;
   height: 100%;
   display: flex;
   flex-direction: column;

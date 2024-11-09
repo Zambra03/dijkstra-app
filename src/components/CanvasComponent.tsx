@@ -46,7 +46,7 @@ export function drawVertex(
 
   if (ctx) {
     ctx.textAlign = "center";
-    ctx.font = "10pt Verdana";
+    ctx.font = "11pt Verdana";
     ctx.fillStyle = "#000000";
     ctx.fillText(nameOfVertex, xPixel, size - yPixel + 23);
 
@@ -81,10 +81,10 @@ export function drawEdge(
   if (ctx) {
     if (optimalRoute) {
       ctx.beginPath();
-      ctx.strokeStyle = "#C00303"; // Color para la ruta óptima
+      ctx.strokeStyle = "#008f39"; // Color para la ruta óptima
     } else {
       ctx.textAlign = "center";
-      ctx.font = "10pt Verdana";
+      ctx.font = "11pt Verdana";
       ctx.fillStyle = "#000000";
       if (weight !== null) {
         ctx.fillText(weight.toString(), xMedioPixel + 15, size - yMedioPixel);

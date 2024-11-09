@@ -12,8 +12,8 @@ function Section4_2({ result, result1 }: Section4_2Props) {
       <p className="formula">
         %E: (1 -{" "}
         <span className="fraction">
-          <span className="numerator"> (peso ruta optima)</span>
-          <span className="denominator"> (peso ruta larga)</span>
+          <span className="numerator"> (distancia ruta optima)</span>
+          <span className="denominator"> (distancia ruta larga)</span>
         </span>
         ) * 100 = eficiencia%
       </p>

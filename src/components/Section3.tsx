@@ -30,12 +30,12 @@ function Section3({
         <i className="fa-solid fa-trash-can" style={{ marginRight: "8px" }}></i>
         Limpiar
       </button>
-      <button id="" className="btn-accion guardar">
+      {/* <button id="" className="btn-accion guardar">
         Guardar
       </button>
       <button id="" className="btn-accion historial">
         Historial
-      </button>
+      </button> */}
     </div>
   );
 }
